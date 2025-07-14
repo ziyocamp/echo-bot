@@ -1,5 +1,5 @@
-import config
-import handlers
+import src.config as config
+import src.handlers as handlers
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
@@ -25,6 +25,3 @@ def main():
 
     updater.start_polling()
     updater.idle()
-
-if __name__ == "__main__":
-    main()
