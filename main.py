@@ -1,8 +1,16 @@
-import os
-from dotenv import load_dotenv
+import config
+import handlers
+from telegram.ext import Updater, CommandHandler
 
-load_dotenv()
 
-TOKEN = os.getenv("TOKEN")
+def main():
+    updater = Updater(config.TOKEN)
+    dispatcher = updater.dispatcher
 
-print(TOKEN)
+    dispatcher.add_handler(CommandHandler('start', handlers.start))
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == "__main__":
+    main()
